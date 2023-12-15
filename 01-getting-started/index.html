@@ -18,7 +18,7 @@
       <input
         type="text"
         :value="lastName"
-        @input="updateLastName('You have changed your lastname!', $event)"
+        @input.prevent="updateLastName('You have changed your lastname!', $event)"
       />
 
       <button type="button" v-on:click="decrement">Become younger</button>
