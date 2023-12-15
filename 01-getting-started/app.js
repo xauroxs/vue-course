@@ -28,6 +28,9 @@ const vm = Vue.createApp({
     fullName() {
       return `${this.firstName} ${this.middleName} ${this.lastName}`;
     },
+    circleClasses() {
+      return { purple: this.isPurple };
+    },
   },
   watch: {
     age(newValue, oldValue) {
