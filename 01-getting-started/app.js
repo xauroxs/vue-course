@@ -8,6 +8,7 @@ const vm = Vue.createApp({
       url: "https://google.com",
       isPurple: false,
       selectedColor: "",
+      size: 150,
     };
   },
   methods: {
