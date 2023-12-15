@@ -6,6 +6,7 @@ const vm = Vue.createApp({
       lastName: "Doe",
       age: 21,
       url: "https://google.com",
+      isPurple: false,
     };
   },
   methods: {
