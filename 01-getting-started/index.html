@@ -36,7 +36,13 @@
 
       <label> <input type="checkbox" v-model="isPurple" /> Purple </label>
 
-      <div class="circle" :class="circleClasses">Hi!</div>
+      <select v-model="selectedColor">
+        <option value="">White</option>
+        <option value="text-black">Black</option>
+        <option value="text-orange">Orange</option>
+      </select>
+
+      <div class="circle" :class="[circleClasses, selectedColor]">Hi!</div>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
