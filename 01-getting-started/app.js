@@ -33,6 +33,16 @@ const vm = Vue.createApp({
     circleClasses() {
       return { purple: this.isPurple };
     },
+    circleSize() {
+      return {
+        width: this.size + "px",
+        height: this.size + "px",
+        lineHeight: this.size + "px",
+      };
+    },
+    circleTransform() {
+      return { transform: "rotate(30deg)" };
+    },
   },
   watch: {
     age(newValue, oldValue) {
