@@ -51,6 +51,18 @@
       >
         Hi!
       </div>
+
+      <hr />
+
+      <p v-if="mode === '1'">Showing v-if directive content</p>
+      <p v-else-if="mode === '2'">Showing v-else-if directive content</p>
+      <p v-else>Showing v-else directive content</p>
+
+      <select v-model="mode">
+        <option value="1">v-if</option>
+        <option value="2">v-else-if</option>
+        <option value="3">v-else</option>
+      </select>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
