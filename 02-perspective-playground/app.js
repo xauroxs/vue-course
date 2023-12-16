@@ -14,6 +14,13 @@ Vue.createApp({
       this.rotateZ = 0;
       this.perspective = 500;
     },
+    async copy() {
+      const data = `transform: ${this.boxTransforms.transform}`;
+
+      await navigator.clipboard.writeText(data);
+
+      alert("CSS copied to the clipboard!");
+    },
   },
   computed: {
     boxTransforms() {
