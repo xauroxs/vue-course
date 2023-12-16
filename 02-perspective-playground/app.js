@@ -7,6 +7,14 @@ Vue.createApp({
       perspective: 500,
     };
   },
+  methods: {
+    reset() {
+      this.rotateX = 0;
+      this.rotateY = 0;
+      this.rotateZ = 0;
+      this.perspective = 500;
+    },
+  },
   computed: {
     boxTransforms() {
       return {
