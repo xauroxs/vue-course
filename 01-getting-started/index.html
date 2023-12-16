@@ -65,6 +65,21 @@
         <option value="2">v-else-if</option>
         <option value="3">v-else</option>
       </select>
+
+      <hr />
+
+      <p>Looping through an array</p>
+      <ul>
+        <li v-for="(bird, index) in birds">{{ index }} - {{ bird }}</li>
+      </ul>
+
+      <p>Looping through an array of objects</p>
+      <ul>
+        <li v-for="person in people">
+          <p>Looping through an object</p>
+          <div v-for="(value, key) in person">{{ key }}: {{ value }}</div>
+        </li>
+      </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>

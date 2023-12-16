@@ -10,6 +10,12 @@ const vm = Vue.createApp({
       selectedColor: "",
       size: 150,
       mode: "1",
+      birds: ["Pigeons", "Eagles", "Doves", "Parrots"],
+      people: [
+        { name: "John", age: 20 },
+        { name: "Anna", age: 19 },
+        { name: "Rick", age: 18 },
+      ],
     };
   },
   methods: {
