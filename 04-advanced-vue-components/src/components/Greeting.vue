@@ -5,9 +5,10 @@
 <script>
 export default {
   name: "Greeting",
+  props: ["name"],
   data() {
     return {
-      msg: "Hello there!",
+      msg: `Hello there, ${this.name}!`,
     };
   },
 };
