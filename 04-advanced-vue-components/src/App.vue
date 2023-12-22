@@ -1,6 +1,6 @@
 <template>
   <Greeting :name="name"></Greeting>
-  <User :age="age"></User>
+  <User :age="age" @increase-age="increaseAge"></User>
 </template>
 
 <script>
@@ -15,6 +15,11 @@ export default {
       name: "John",
       age: 21,
     };
+  },
+  methods: {
+    increaseAge() {
+      this.age++;
+    },
   },
 };
 </script>
