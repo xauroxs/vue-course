@@ -1,3 +1,12 @@
-<template></template>
+<template>
+  <FadingText></FadingText>
+</template>
 
-<script></script>
+<script>
+import FadingText from "./components/FadingText.vue";
+
+export default {
+  name: "App",
+  components: { FadingText },
+};
+</script>
