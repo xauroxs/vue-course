@@ -58,8 +58,16 @@ li {
   transition: all 0.25s linear;
 }
 
+.fade-leave-active {
+  position: absolute;
+}
+
 .fade-enter-to,
 .fade-leave-from {
   opacity: 1;
+}
+
+.fade-move {
+  transition: all 0.5s linear;
 }
 </style>
