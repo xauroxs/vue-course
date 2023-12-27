@@ -6,16 +6,12 @@
     </div>
     <div
       class="single-question"
-      v-for="question in questions"
-      :key="question.question"
+      v-for="{ question, answers } in questions"
+      :key="question"
     >
-      <div class="question">{{ question.question }}</div>
-      <div
-        class="answers"
-        v-for="answer in question.answers"
-        :key="answer.text"
-      >
-        <div class="answer">{{ answer.text }}</div>
+      <div class="question">{{ question }}</div>
+      <div class="answers" v-for="{ text } in answers" :key="text">
+        <div class="answer">{{ text }}</div>
       </div>
     </div>
   </div>
