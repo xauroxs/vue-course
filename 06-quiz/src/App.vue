@@ -2,7 +2,9 @@
   <div class="ctr">
     <Questions
       v-if="questionsAnswered < questions.length"
+      :questionsAnswered="questionsAnswered"
       :questions="questions"
+      @question-answered="questionAnswered"
     />
     <Result v-else />
     <button type="button" class="reset-btn">Reset</button>
@@ -19,6 +21,7 @@ export default {
   data() {
     return {
       questionsAnswered: 0,
+      correctAnswered: 0,
       questions: [
         {
           question: "What is 2 + 2?",
@@ -95,6 +98,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    questionAnswered(isCorrect) {
+      if (isCorrect) this.correctAnswered++;
+
+      this.questionsAnswered++;
+    },
   },
 };
 </script>
