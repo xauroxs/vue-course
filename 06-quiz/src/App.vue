@@ -7,7 +7,14 @@
       @question-answered="questionAnswered"
     />
     <Result v-else :results="results" :correctAnswered="correctAnswered" />
-    <button type="button" class="reset-btn">Reset</button>
+    <button
+      type="button"
+      class="reset-btn"
+      @click.prevent="resetQuiz"
+      v-if="this.questionsAnswered === questions.length"
+    >
+      Reset
+    </button>
   </div>
 </template>
 
@@ -104,6 +111,10 @@ export default {
       if (isCorrect) this.correctAnswered++;
 
       this.questionsAnswered++;
+    },
+    resetQuiz() {
+      this.questionsAnswered = 0;
+      this.correctAnswered = 0;
     },
   },
 };
@@ -238,6 +249,7 @@ body {
 .reset-btn:active,
 .reset-btn:focus,
 .reset-btn:hover {
+  cursor: pointer;
   border: 0;
   outline: 0;
 }
