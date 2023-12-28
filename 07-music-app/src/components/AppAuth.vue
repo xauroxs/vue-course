@@ -198,7 +198,7 @@ export default {
         password: 'required|min:8|max:32|excluded:password',
         confirmPassword: 'required|confirmed:@password',
         country: 'required|',
-        tos: 'required'
+        tos: 'tos'
       },
       userData: {
         country: 'USA'
