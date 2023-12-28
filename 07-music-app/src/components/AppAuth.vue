@@ -81,7 +81,11 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <VeeForm v-show="tab === 'register'" :validation-schema="schema">
+          <VeeForm
+            v-show="tab === 'register'"
+            :validation-schema="schema"
+            :initial-values="userData"
+          >
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -195,6 +199,9 @@ export default {
         confirmPassword: 'required|confirmed:@password',
         country: 'required|',
         tos: 'required'
+      },
+      userData: {
+        country: 'USA'
       }
     }
   },
