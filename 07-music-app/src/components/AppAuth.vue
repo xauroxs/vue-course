@@ -81,10 +81,18 @@
             </button>
           </form>
           <!-- Registration Form -->
+          <div
+            class="text-white text-center font-bold p-4 rounded mb-4"
+            :class="registrationAlertVariant"
+            v-if="registrationShowAlert"
+          >
+            {{ registrationAlertMessage }}
+          </div>
           <VeeForm
             v-show="tab === 'register'"
             :validation-schema="schema"
             :initial-values="userData"
+            @submit="register"
           >
             <!-- Name -->
             <div class="mb-3">
@@ -172,6 +180,7 @@
             <button
               type="submit"
               class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition hover:bg-purple-700"
+              :disabled="registrationInSubmission"
             >
               Submit
             </button>
@@ -202,7 +211,11 @@ export default {
       },
       userData: {
         country: 'USA'
-      }
+      },
+      registrationInSubmission: false,
+      registrationShowAlert: false,
+      registrationAlertVariant: 'bg-blue-500',
+      registrationAlertMessage: 'Please wait. Your account is being created.'
     }
   },
   computed: {
@@ -210,6 +223,17 @@ export default {
     ...mapWritableState(useModalStore, {
       modalVisibility: 'isOpen'
     })
+  },
+  methods: {
+    register() {
+      this.registrationShowAlert = true
+      this.registrationInSubmission = true
+      this.registrationAlertVariant = 'bg-blue-500'
+      this.registrationAlertMessage = 'Please wait. Your account is being created.'
+
+      this.registrationAlertVariant = 'bg-green-500'
+      this.registrationAlertMessage = 'Success! Your account has been created.'
+    }
   }
 }
 </script>
