@@ -26,21 +26,35 @@
           </div>
 
           <!-- Tabs -->
-          <ul class="flex flex-wrap mb-4">
+          <ul class="flex flex-wrap mb-4 gap-2">
             <li class="flex-auto text-center">
               <a
-                class="block rounded py-3 px-4 transition hover:text-white text-white bg-blue-600"
+                class="block rounded py-3 px-4 transition"
+                :class="{
+                  'hover:text-white text-white bg-blue-600': tab === 'login',
+                  'hover:text-blue-600 hover:bg-gray-200': tab !== 'login'
+                }"
                 href="#"
+                @click.prevent="tab = 'login'"
                 >Login</a
               >
             </li>
             <li class="flex-auto text-center">
-              <a class="block rounded py-3 px-4 transition" href="#">Register</a>
+              <a
+                class="block rounded py-3 px-4 transition"
+                :class="{
+                  'hover:text-white text-white bg-blue-600': tab === 'register',
+                  'hover:text-blue-600 hover:bg-gray-200': tab !== 'register'
+                }"
+                href="#"
+                @click.prevent="tab = 'register'"
+                >Register</a
+              >
             </li>
           </ul>
 
           <!-- Login Form -->
-          <form>
+          <form v-show="tab === 'login'">
             <!-- Email -->
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
@@ -67,7 +81,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <form>
+          <form v-show="tab === 'register'">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -147,6 +161,11 @@ import useModalStore from '@/stores/modal'
 
 export default {
   name: 'AppAuth',
+  data() {
+    return {
+      tab: 'login'
+    }
+  },
   computed: {
     ...mapState(useModalStore, ['hiddenClass']),
     ...mapWritableState(useModalStore, {
